@@ -18,7 +18,7 @@ type CheckboxProps = {
 const Checkbox = ({ checked, disabled, label, onClick }: CheckboxProps): JSX.Element => (
   <StyledCheckboxWrapper disabled={disabled}>
     <StyledCheckbox checked={checked} disabled={disabled}>
-      <StyledInput type="checkbox" checked={checked} onClick={onClick} />
+      <StyledInput type="checkbox" checked={checked} disabled={disabled} onClick={onClick} />
       <StyledIconWrapper checked={checked} disabled={disabled}>
         <FontAwesomeIcon icon={{ prefix: 'fas', iconName: 'check' }} />
       </StyledIconWrapper>

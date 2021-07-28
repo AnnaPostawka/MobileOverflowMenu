@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
 
 import { useAppSelector, useAppDispatch } from 'redux/hooks'
 
 import { fetchSessionInformation } from 'redux/sessionInformation/fetchSessionInformation'
+import { selectSessionInformationData } from 'redux/sessionInformation/sessionInformationSlice'
 import {
-  selectSessionInformationIsFetching,
-  selectSessionInformationData,
-} from 'redux/sessionInformation/sessionInformationSlice'
-import { selectSessionSettings } from 'redux/sessionSettings/sessionSettingsSlice'
+  selectSessionSettings,
+  toggleBeautyFilter,
+  toggleHighQuality,
+  toggleReminder,
+} from 'redux/sessionSettings/sessionSettingsSlice'
 
 import OverviewMenuPageView from './OverflowMenuPageView'
 
@@ -18,24 +19,40 @@ const OverflowMenuPage = (): JSX.Element => {
   useEffect(() => {
     dispatch(fetchSessionInformation(1))
   }, [dispatch])
-  const { t } = useTranslation()
 
-  const isFetching = useAppSelector(selectSessionInformationIsFetching)
   const sessionInformation = useAppSelector(selectSessionInformationData)
   const sessionSettings = useAppSelector(selectSessionSettings)
 
-  const handleButtonClick = () => {
-    setOpenMenu(!openMenu)
+  const handleOpenButtonClick = () => {
+    setOpenMenu(true)
+  }
+
+  const handleCloseButtonClick = () => {
+    setOpenMenu(false)
+  }
+
+  const handleHighQualityToggle = () => {
+    dispatch(toggleHighQuality())
+  }
+
+  const handleBeautyFilterToggle = () => {
+    dispatch(toggleBeautyFilter())
+  }
+
+  const handleReminderToggle = () => {
+    dispatch(toggleReminder())
   }
 
   return (
     <OverviewMenuPageView
-      buttonLabel={t('open')}
-      isFetching={isFetching}
       openMenu={openMenu}
       sessionInformation={sessionInformation}
       sessionSettings={sessionSettings}
-      onButtonClick={handleButtonClick}
+      onBeautyFilterToggle={handleBeautyFilterToggle}
+      onCloseButtonClick={handleCloseButtonClick}
+      onHighQualityToggle={handleHighQualityToggle}
+      onOpenButtonClick={handleOpenButtonClick}
+      onReminderToggle={handleReminderToggle}
     />
   )
 }
