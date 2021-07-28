@@ -13,7 +13,11 @@ Responsiveness to different device / browser sizes: mobile only
 
 ## How to get the app running
 
-### `npm start`
+### `yarn install`
+
+Installs the project dependencies.
+
+### `yarn start`
 
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
