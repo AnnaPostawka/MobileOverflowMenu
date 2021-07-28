@@ -5,15 +5,15 @@ import { colors } from 'constants/colors'
 const bottomsheetHeight = '82vh'
 
 export const StyledBottomsheet = styled.div<{ open: boolean }>`
-  display: ${(props) => (props.open ? 'inherit' : 'none')};
   position: absolute;
   height: ${bottomsheetHeight};
-  width: 100%;
+  width: 100vw;
   left: 0;
-  bottom: 0;
+  bottom: -100vh;
   background: ${colors.white};
   box-shadow: 0px -8px 20px rgba(0, 0, 0, 0.1);
   border-radius: 24px 24px 0px 0px;
+  z-index: 100;
   overflow: scroll;
 
   &::-webkit-scrollbar {
@@ -22,16 +22,33 @@ export const StyledBottomsheet = styled.div<{ open: boolean }>`
 
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  transition: bottom 300ms ease-out;
+
+  ${({ open }) =>
+    open &&
+    `
+    bottom: 0;
+  `}
 `
 
-export const StyledCloseButtonWrapper = styled.div`
+export const StyledCloseButtonWrapper = styled.div<{ open: boolean }>`
   width: 100%;
   display: flex;
   justify-content: flex-end;
   padding: 24px 32px 8px;
   position: fixed;
-  top: calc(100vh - ${bottomsheetHeight});
+  bottom: -100vh;
   right: 0;
+  z-index: 101;
+
+  transition: bottom 300ms ease-out;
+
+  ${({ open }) =>
+    open &&
+    `
+    bottom: calc(${bottomsheetHeight} - 64px);
+  `}
 `
 
 export const StyledContentWrapper = styled.div`

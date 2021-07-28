@@ -12,7 +12,7 @@ type BottomsheetProps = {
 
 const Bottomsheet = ({ children, open, onClick }: BottomsheetProps): JSX.Element => (
   <StyledBottomsheet open={open}>
-    <StyledCloseButtonWrapper>
+    <StyledCloseButtonWrapper open={open}>
       <IconButton icon={{ prefix: 'fas', iconName: 'times' }} onClick={onClick} />
     </StyledCloseButtonWrapper>
     <StyledContentWrapper>{children}</StyledContentWrapper>
