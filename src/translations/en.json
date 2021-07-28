@@ -1,0 +1,15 @@
+{
+  "sessionSettings": {
+    "highQuality": "High - HD quality",
+    "beautyFilter": "Beauty filter",
+    "reminder": "Reminder on"
+  },
+  "sessionInformation": {
+    "repeats": "(Repeats {{ frequency }})",
+    "hostedBy": "Hosted by",
+    "about": "What’s it about?"
+  },
+  "leaveQuietly": "Leave quietly",
+  "share": "Share",
+  "open": "Open"
+}
