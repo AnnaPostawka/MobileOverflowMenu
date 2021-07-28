@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 
+import { colors } from 'constants/colors'
+
+import backgroundImage from 'assets/background.png'
+
 export const StyledOverflowMenuPage = styled.div`
   width: 100vw;
   height: 100vh;
-  background: url('../../images/background.png'), rgb(230, 187, 181);
+  background: url(${backgroundImage}), ${colors.basic};
+  background-size: cover;
+  background-repeat: no-repeat;
 `
 
 export const StyledButtonWrapper = styled.div`

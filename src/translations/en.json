@@ -6,6 +6,11 @@
   },
   "sessionInformation": {
     "repeats": "(Repeats {{ frequency }})",
+    "frequency": {
+      "weekly": "weekly",
+      "daily": "daily",
+      "monthly": "monthly"
+    },
     "hostedBy": "Hosted by",
     "about": "What’s it about?"
   },

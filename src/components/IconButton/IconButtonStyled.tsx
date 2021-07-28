@@ -4,8 +4,8 @@ import hexRgb from 'hex-rgb'
 import { colors } from 'constants/colors'
 
 export const StyledIconButton = styled.button<{
-  size?: number
-  iconSize?: number
+  size?: string
+  iconSize?: string
   background?: string
   iconColor?: string
 }>`
