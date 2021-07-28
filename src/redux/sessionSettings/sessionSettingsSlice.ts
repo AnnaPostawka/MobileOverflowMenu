@@ -29,5 +29,8 @@ export const sessionSettingsSlice = createSlice({
 export const { toggleHighQuality, toggleBeautyFilter, toggleReminder } = sessionSettingsSlice.actions
 
 export const selectSessionSettings = (state: RootState): SessionSettings => state.sessionSettings
+export const selectSessionSettingsHighQuality = (state: RootState): boolean => state.sessionSettings.highQuality
+export const selectSessionSettingsBeautyFilter = (state: RootState): boolean => state.sessionSettings.beautyFilter
+export const selectSessionSettingsReminder = (state: RootState): boolean => state.sessionSettings.reminder
 
 export default sessionSettingsSlice.reducer

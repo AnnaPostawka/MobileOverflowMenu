@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { colors } from 'constants/colors'
 
+import Checkbox from 'components/Checkbox'
 import IconButton from 'components/IconButton'
 import Typography from 'components/Typography'
+import Settings from 'components/Settings'
 
 import { SessionInformation } from 'redux/sessionInformation/types'
 import { SessionSettings } from 'redux/sessionSettings/types'
@@ -20,6 +22,7 @@ type BottomsheetProps = {
 
 const Bottomsheet = ({ open, sessionInformation, sessionSettings, onClick }: BottomsheetProps): JSX.Element => {
   const { t } = useTranslation('sessionInformation')
+  const [checked, setChecked] = useState(false)
 
   const { title, repeats, host, description } = sessionInformation
   const { name, about } = host || {}
@@ -43,7 +46,7 @@ const Bottomsheet = ({ open, sessionInformation, sessionSettings, onClick }: Bot
             {name}
           </Typography>
         </Typography>
-
+        <Settings />
         <Typography margin="0 0 4px" bold>
           {t('about')}
         </Typography>

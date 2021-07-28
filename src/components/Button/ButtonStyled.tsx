@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
+import { colors } from 'constants/colors'
+
 export const StyledButton = styled.button`
-  color: #ffffff;
-  background-color: #cc104b;
+  color: ${colors.white};
+  background-color: ${colors.red};
   border-radius: 16px;
   border: none;
   animation-timing-function: ease-out;
